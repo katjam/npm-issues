@@ -94,6 +94,10 @@ function searchIssues (repos, query, state) {
         query += ' state:' + state;
     }
 
+    /** Hardcoded "help wanted" label **/
+    /** TODO add option **/
+    query += ' label:"Help wanted"';
+
     var requests = _createGithubRequests(repos, query, headers);
 
     var promises = requests.map(function (request) {
